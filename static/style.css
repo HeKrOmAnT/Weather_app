@@ -1,0 +1,388 @@
+/* Основные стили */
+:root {
+    --primary: #3498db;
+    --secondary: #2980b9;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --success: #27ae60;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+header form {
+    display: flex;
+    margin: 10px 0;
+}
+
+header input[type="text"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 250px;
+    font-size: 1rem;
+}
+
+header button {
+    padding: 8px 15px;
+    background-color: var(--dark);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+header button:hover {
+    background-color: #1a252f;
+}
+
+/* Основной контент */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    margin: 30px 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.main-search {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.main-search input[type="text"] {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--primary);
+    border-radius: 4px 0 0 4px;
+    font-size: 1.1rem;
+}
+
+.main-search button {
+    padding: 12px 25px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.main-search button:hover {
+    background-color: var(--secondary);
+}
+
+.popular-cities {
+    margin-top: 30px;
+}
+
+.popular-cities p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.city-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.city-links a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--light);
+    color: var(--dark);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.city-links a:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Страница погоды */
+.weather-header {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 20px;
+}
+
+.weather-header h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--dark);
+}
+
+.main-stats {
+    display: flex;
+    justify-content: center;
+}
+
+.temp-box {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.avg-temp {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+.minmax {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.minmax span:first-child {
+    color: var(--danger);
+}
+
+.minmax span:last-child {
+    color: var(--primary);
+}
+
+.weather-graph {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.weather-graph img {
+    width: 100%;
+    height: auto;
+}
+
+.forecast-section {
+    margin-bottom: 30px;
+}
+
+.forecast-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--dark);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light);
+}
+
+.hourly-forecast {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+}
+
+.hour-card {
+    min-width: 120px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.hour-card p {
+    margin: 5px 0;
+}
+
+.hour-card .description {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.daily-forecast {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.day-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.day-card p {
+    min-width: 100px;
+}
+
+.day-card .minmax {
+    display: flex;
+    gap: 15px;
+    min-width: 100px;
+}
+
+.day-card .minmax span:first-child {
+    font-weight: 500;
+    color: #333;
+}
+
+.day-card .minmax span:last-child {
+    color: #777;
+}
+
+/* Ошибки */
+.error {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    margin: 30px 0;
+}
+
+.error p {
+    font-size: 1.2rem;
+    color: var(--danger);
+    margin-bottom: 20px;
+}
+
+.error a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.error a:hover {
+    background-color: var(--secondary);
+}
+
+/* Подвал */
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer p {
+    margin: 5px 0;
+    color: #bbb;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header form {
+        width: 100%;
+    }
+
+    header input[type="text"] {
+        width: 100%;
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .main-search {
+        flex-direction: column;
+    }
+
+    .main-search input[type="text"],
+    .main-search button {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .day-card {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .day-card p, .day-card .minmax {
+        min-width: auto;
+    }
+}

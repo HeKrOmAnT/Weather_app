@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Погода в {{ city }}{% endblock %}
+
+{% block content %}
+    {% if error %}
+        <div class="error">
+            <p>{{ error }}</p>
+            <a href="{{ url_for('index') }}">Вернуться на главную</a>
+        </div>
+    {% else %}
+        <div class="weather-header">
+            <h2>Погода в {{ city }}, {{ country }}</h2>
+            <div class="main-stats">
+                <div class="temp-box">
+                    <p class="avg-temp">{{ avg_temp }}°C</p>
+                    <div class="minmax">
+                        <span>↑ {{ max_temp }}°C</span>
+                        <span>↓ {{ min_temp }}°C</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weather-graph">
+            <img src="data:image/png;base64,{{ plot_url }}" alt="График температуры">
+        </div>
+
+        <div class="forecast-section">
+            <h3>Почасовой прогноз</h3>
+            <div class="hourly-forecast">
+                {% for hour in hourly_forecast %}
+                    <div class="hour-card">
+                        <p>{{ hour.datetime|strftime('%H:%M') }}</p>
+                        <img src="{{ hour.icon }}" alt="{{ hour.description }}">
+                        <p>{{ hour.temp }}°C</p>
+                        <p class="description">{{ hour.description|capitalize }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="forecast-section">
+            <h3>Прогноз на 5 дней</h3>
+            <div class="daily-forecast">
+                {% for day in daily_forecast %}
+                    <div class="day-card">
+                        <p>{{ day.date|rus_weekday }}, {{ day.date|strftime('%d.%m') }}</p>
+                        <img src="{{ day.icon }}" alt="Weather icon">
+                        <p>{{ day.avg_temp }}°C</p>
+                        <div class="minmax">
+                            <span>{{ day.max_temp }}°</span>
+                            <span>{{ day.min_temp }}°</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

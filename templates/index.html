@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <div class="hero">
+        <h2>Прогноз погоды на 5 дней</h2>
+        <p>Введите название города для просмотра подробного прогноза</p>
+
+        <form action="/" method="POST" class="main-search">
+            <input type="text" name="city" placeholder="Например, Москва или London" required>
+            <button type="submit">Показать погоду</button>
+        </form>
+
+        <div class="popular-cities">
+            <p>Популярные города:</p>
+            <div class="city-links">
+                <a href="{{ url_for('weather', city='Moscow') }}">Москва</a>
+                <a href="{{ url_for('weather', city='Saint Petersburg') }}">Санкт-Петербург</a>
+                <a href="{{ url_for('weather', city='London') }}">Лондон</a>
+                <a href="{{ url_for('weather', city='New York') }}">Нью-Йорк</a>
+                <a href="{{ url_for('weather', city='Tokyo') }}">Токио</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
